@@ -1,0 +1,31 @@
+# 数据源(基础数据)
+spring.datasource.druid.sys:
+    url: jdbc:mysql://localhost:3306/db1?useSSL=false&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC
+    username: devel
+    password: devel
+    #default-readOnly: false  # 读写
+    initial-size: 30
+    max-active: 50
+    min-idle: 30
+    max-wait: 30000
+    pool-prepared-statements: true
+    max-pool-prepared-statement-per-connection-size: 20
+    validation-query: SELECT 'x'
+    time-between-eviction-runs-millis: 30000
+    min-evictable-idle-time-millis: 300000
+
+# 数据源(用户数据)
+spring.datasource.druid.user:
+    url: jdbc:mysql://localhost:3306/db2?useSSL=false&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC
+    username: devel
+    password: devel
+    #default-readOnly: true  # 只读
+    initial-size: 30
+    max-active: 50
+    min-idle: 30
+    max-wait: 30000
+    pool-prepared-statements: true
+    max-pool-prepared-statement-per-connection-size: 20
+    validation-query: SELECT 'x'
+    time-between-eviction-runs-millis: 30000
+    min-evictable-idle-time-millis: 300000

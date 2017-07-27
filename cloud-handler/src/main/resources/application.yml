@@ -1,0 +1,10 @@
+# 激活配置
+spring.profiles.active: devel
+
+# 公共配置
+server.port: 9000
+
+# jackson时间格式化
+spring.jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss

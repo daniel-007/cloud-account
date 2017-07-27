@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <property name="LOG_HOME" value="logs" />
+  <property name="FILENAME_PREFIX" value="%d{yyyyMMdd}/%d{yyyyMMdd}-cloud" />
+  <property name="NORMAL_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50}: %msg%n" />
+  <property name="MAX_HISTORY" value="30" />
+
+  <!-- 控制台输出 -->
+  <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+      <pattern>${NORMAL_PATTERN}</pattern>
+    </encoder>
+  </appender>
+
+  <!-- 程序运行主日志 -->
+  <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <FileNamePattern>${LOG_HOME}/${FILENAME_PREFIX}.log</FileNamePattern>
+      <MaxHistory>${MAX_HISTORY}</MaxHistory>
+    </rollingPolicy>
+    <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+      <pattern>${NORMAL_PATTERN}</pattern>
+    </encoder>
+  </appender>
+
+  <!-- root logger -->
+  <root level="INFO">
+    <appender-ref ref="CONSOLE" />
+    <appender-ref ref="FILE" />
+  </root>
+</configuration>
