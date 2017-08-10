@@ -7,7 +7,7 @@ import lombok.Getter;
  * Created by fangxm on 2017-07-18.
  */
 @Getter
-public class CloudException extends Exception {
+public class CloudException extends RuntimeException {
 
     private int status;
     private String message;
